@@ -10,6 +10,10 @@
 ;;; ## How does this work?
 ;;; 
 ;;; TODO - explain Gorilla and how this works.
+;;; 
+;;; ## Why Clojure?
+;;; 
+;;; TODO
 ;; **
 
 ;; **
