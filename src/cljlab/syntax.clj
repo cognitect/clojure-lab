@@ -305,7 +305,7 @@ clojure.core/+  ; Namespaced symbol
 ;; <=
 
 ;; **
-;;; As you go through this workshop, please feel free to examine the docstring and source for the functions you are using. Exploring the implementation of Clojure itself is an excellent way to learn more about the language and how it is used.
+;;; As you go through this workshop, please feel free to examine the docstring and source for the functions you are using. Exploring the implementation of the Clojure library itself is an excellent way to learn more about the language and how it is used.
 ;;; 
 ;;; It is also an excellent idea to keep a copy of the [Clojure Cheatsheet](http://clojure.org/cheatsheet) open while you are learning Clojure. The cheatsheet categorizes the functions available in the standard library and is an invaluable reference.
 ;;; 
@@ -315,9 +315,84 @@ clojure.core/+  ; Namespaced symbol
 ;; **
 ;;; ## Clojure basics
 ;;; 
-;;; ### Vars
+;;; ### def
 ;;; 
-;;; ### Printing
-;;; 
-;;; 
+;;; When you are evaluating things at a REPL, it can be useful to save a piece of data for later. We can do this with `def`:
 ;; **
+
+;; @@
+(def x 7)
+;; @@
+;; =>
+;;; {"type":"html","content":"<span class='clj-var'>#&#x27;user/x</span>","value":"#'user/x"}
+;; <=
+
+;; **
+;;; `def` is a special form that associates a symbol (x) in the current namespace with a value (7). This linkage is called a `var`. In most actual Clojure code, vars should refer to either a constant value or a function, but it's common to define and re-define them for convenience when working at the REPL.
+;;; 
+;;; Note the return value above is `#'user/x` - that's the literal representation for a var: `#'` followed by the namespaced symbol. `user` is the default namespace.
+;;; 
+;;; Recall that symbols are evaluated by looking up what they refer to, so we can get the value back by just using the symbol:
+;; **
+
+;; @@
+(+ x x)
+;; @@
+;; =>
+;;; {"type":"html","content":"<span class='clj-long'>14</span>","value":"14"}
+;; <=
+
+;; **
+;;; ### Printing
+;; **
+
+;; **
+;;; One of the most common things you do when learning a language is to print out values. Clojure provides several functions for printing values:
+;;; 
+;;; | | Human-Readable | Machine-Readable |
+;;; |-|----------------|------------------|
+;;; |With newline| println | prn | 
+;;; |Without newline | print | pr |
+;;; 
+;;; The human-readable forms will translate special print characters (like newlines and tabs) to their expected form and print strings without quotes. We often use `println` to debug functions or print a value at the REPL. `println` takes any number of arguments and interposes a space between each argument's printed value:
+;; **
+
+;; @@
+(println "What is this:" (+ 1 2))
+;; @@
+;; ->
+;;; What is this: 3
+;;; 
+;; <-
+;; =>
+;;; {"type":"html","content":"<span class='clj-nil'>nil</span>","value":"nil"}
+;; <=
+
+;; **
+;;; The `println` function has side-effects (printing) and returns nil as a result. 
+;;; 
+;;; Note that `"What is this:"` above did not print the surrouding quotes and is not a string that the Reader could read again in the same way. For that purpose, use the machine-readable version `prn`:
+;; **
+
+;; @@
+(prn "one\n\ttwo")
+;; @@
+;; ->
+;;; &quot;one\n\ttwo&quot;
+;;; 
+;; <-
+;; =>
+;;; {"type":"html","content":"<span class='clj-nil'>nil</span>","value":"nil"}
+;; <=
+
+;; **
+;;; Note that the printed result is a valid form that the Reader could read again. Both human- and readable- printing functions are useful in different contexts.
+;; **
+
+;; **
+;;; ### Functions
+;; **
+
+;; @@
+
+;; @@
