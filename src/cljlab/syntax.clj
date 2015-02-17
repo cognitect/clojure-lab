@@ -110,6 +110,59 @@ clojure.core/+  ; Namespaced symbol
 ;; **
 
 ;; **
+;;; ### Delaying evaluation with quoting
+;; **
+
+;; **
+;;; Sometimes it's useful to avoid the evaluation rules, in particular for symbols and lists. Sometimes a symbol should just be a symbol:
+;; **
+
+;; @@
+'x
+;; @@
+;; =>
+;;; {"type":"html","content":"<span class='clj-symbol'>x</span>","value":"x"}
+;; <=
+
+;; **
+;;; And sometimes a list should just be a list of data (not code):
+;; **
+
+;; @@
+'(1 2 3)
+;; @@
+;; =>
+;;; {"type":"list-like","open":"<span class='clj-list'>(</span>","close":"<span class='clj-list'>)</span>","separator":" ","items":[{"type":"html","content":"<span class='clj-long'>1</span>","value":"1"},{"type":"html","content":"<span class='clj-long'>2</span>","value":"2"},{"type":"html","content":"<span class='clj-long'>3</span>","value":"3"}],"value":"(1 2 3)"}
+;; <=
+
+;; **
+;;; 
+;; **
+
+;; **
+;;; One confusing error you might see is the result of accidentally trying to evaluate a list of data as if it were code:
+;; **
+
+;; @@
+(1 2 3)
+;; @@
+
+;; **
+;;; The `'` is a symbol syntax understood by the reader but it is equivalent to the special form `quote`:
+;; **
+
+;; @@
+(quote (1 2 3))
+;; @@
+;; =>
+;;; {"type":"list-like","open":"<span class='clj-list'>(</span>","close":"<span class='clj-list'>)</span>","separator":" ","items":[{"type":"html","content":"<span class='clj-long'>1</span>","value":"1"},{"type":"html","content":"<span class='clj-long'>2</span>","value":"2"},{"type":"html","content":"<span class='clj-long'>3</span>","value":"3"}],"value":"(1 2 3)"}
+;; <=
+
+;; **
+;;; For now, don't worry too much about quote but it shows up on this page once or twice to delay evaluation of symbols or lists.
+;; **
+
+;; **
 ;;; ## REPL
 ;;; 
 ;;; Most of the time when you are using Clojure, you will do so in an editor or a REPL (Read-Eval-Print-Loop). The REPL has the following parts:
@@ -390,9 +443,14 @@ clojure.core/+  ; Namespaced symbol
 ;; **
 
 ;; **
-;;; ### Functions
+;;; ## LAB
 ;; **
 
-;; @@
+;; **
+;;; 
+;; **
 
-;; @@
+;; **
+;;; TODO
+;;; 
+;; **
