@@ -451,6 +451,46 @@ clojure.core/+  ; Namespaced symbol
 ;; **
 
 ;; **
-;;; TODO
+;;; Using the REPL, compute the sum of 7564 and 1234.
 ;;; 
+;; **
+
+;; @@
+
+;; expected result = 8888
+;; @@
+
+;; **
+;;; Rewrite the following algebraic expression as a Clojure expression.
+;; **
+
+;; @@
+
+;; expected result = 12/5
+;; @@
+
+;; **
+;;; Using REPL documentation functions, find the documentation for the `rem` and `mod` functions. Compare the results of the provided expressions based on the documentation. 
+;; **
+
+;; @@
+;; make all functions in the clojure.repl namespace 
+(require '[clojure.repl :refer :all])
+
+(rem 10 -8)
+(mod 10 -8)
+
+;; @@
+
+;; **
+;;; Using `find-doc`, find the function that prints the stack trace of the most recent REPL exception.
+;; **
+
+;; @@
+;; You can provoke an exception like this:
+(throw (Exception. "oh no!"))
+;; @@
+
+;; **
+;;; Continue to the next page ---->  [Functions](/worksheet.html?filename=src/cljlab/functions.clj)
 ;; **
