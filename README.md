@@ -24,7 +24,7 @@ lein gorilla :port 55555
 
 ### Step 3: Open the lab page in your web browser
 
-[Start](http://127.0.0.1:5555/worksheet.html?filename=src/cljlab/start.clj)
+[Start](http://127.0.0.1:55555/worksheet.html?filename=src/cljlab/start.clj)
 
 ## Contributions 
 
