@@ -35,7 +35,7 @@
 ;;; 
 ;;; Flow control operators are composable, so we can use them anywhere. This leads to less duplicate code, as well as fewer intermediate variables.
 ;;; 
-;;; Flow control operators are also extensible via macros ~\* explanation here \*~
+;;; Flow control operators are also extensible via macros, which allow the compiler to be extended by user code. We won't be discussing macros today, but you can read more about them at [Clojure.org](http://clojure.org/macros), [Clojure from the Ground Up](https://aphyr.com/posts/305-clojure-from-the-ground-up-macros), or [Clojure for the Brave and True](http://www.braveclojure.com/writing-macros/), among many other places.
 ;;; 
 ;;; ## `if`
 ;;; ~\* explanation here \*~
