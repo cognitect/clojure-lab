@@ -210,7 +210,7 @@ vector
 ;;; 
 ;;; ### `apply`
 ;;; 
-;;; The `apply` function invokes a function with 0 or more fixed arguments, and draw the rest of the needed arguments from a final sequence.
+;;; The `apply` function invokes a function with 0 or more fixed arguments, and draws the rest of the needed arguments from a final sequence. The final argument *must* be a sequence.
 ;; **
 
 ;; @@
@@ -241,6 +241,202 @@ vector
 ;; @@
 
 ;; **
-;;; ### `apply` and Variadics
+;;; ## Locals and Closures
 ;;; 
+;;; ### `let`
+;;; 
+;;; `let` binds symbols to values in a "lexical scope". A lexical scope creates a new context for names, nested inside the surrounding context. Names defined in a let take precedence over the names in the outer context.
 ;; **
+
+;; @@
+;;      bindings     name is defined here
+;;    ------------  ----------------------
+(let  [name value]  (code that uses name))
+;; @@
+
+;; **
+;;; Each `let` can define 0 or more bindings and can have 0 or more expressions in the body.
+;; **
+
+;; @@
+(let [x 1
+      y 2]
+  (+ x y))
+;; @@
+
+;; **
+;;; This `let` expression creates two local bindings for `x` and `y`. The expression `(+ x y)` is in the lexical scope of the `let` and resolves x to 1 and y to 2. Outside the `let` expression, x and y will have no continued meaning, unless they were already bound to a value.
+;; **
+
+;; @@
+(defn messenger [msg]
+  (let [a 7
+        b 5
+        c (clojure.string/capitalize msg)]
+    (println a b c)
+  ) ;; end of let scope
+) ;; end of function
+;; @@
+
+;; **
+;;; The messenger function takes a `msg` argument. Here the `defn` is also creating lexical scope for `msg` - it only has meanining within the `messenger` function.
+;;; 
+;;; Within that function scope, the `let` creates a new scope to define a, b, and c. If we tried to use a after the let expression, the compiler would report an error.
+;;; 
+;;; ### Closures
+;;; 
+;;; The `fn` special form creates a "closure". It "closes over" the surrounding lexical scope (like msg, a, b, or c above) and captures their values beyond the lexical scope.
+;; **
+
+;; @@
+(defn messenger-builder [greeting]
+  (fn [who] (println greeting who))) ; closes over greeting
+
+;; greeting provided here, then goes out of scope
+(def hello-er (messenger-builder "Hello"))
+
+;; greeting value still available because hello-er is a closure
+(hello-er "world!")
+;; Hello world!
+;; @@
+
+;; **
+;;; ## Java Interop
+;;; 
+;;; ### Invoking Java code
+;;; 
+;;; Below is a summary of calling conventions for calling into Java from Clojure:
+;;; 
+;;; | Task | Java | Clojure |
+;;; |------|------|---------|
+;;; |Instantiation| `new Widget("foo")` | `(Widget. "foo")` | 
+;;; |Instance method| `rnd.next()` | `(.nextInt rnd)` |
+;;; |Instance field| `object.field` | `(.-field object)` |
+;;; |Static method| `Math.sqrt(25)` | `(Math/sqrt 25)` |
+;;; |Static field| `Math.PI` | `Math/PI` |
+;;; 
+;;; ### Java Methods vs Functions
+;;; 
+;;; * Java methods are not Clojure functions
+;;; * Can't store them or pass them as arguments
+;;; * Can wrap them in functions when necessary
+;; **
+
+;; @@
+;; make a function to invoke .length on arg
+(fn [obj] (.length obj))
+
+;; same thing
+#(.length %)
+;; @@
+
+;; **
+;;; ## LAB: Functions
+;;; 
+;;; ### Defining a function
+;;; 
+;;; Define a function `greet` that takes no arguments and prints "Hello". Replace the `__` with the implementation.
+;; **
+
+;; @@
+(defn greet [] __ )
+;; @@
+
+;; **
+;;; ### Different ways to define functions
+;;; 
+;;; Redefine `greet` using `def`, first with the `fn` special form and then with the `#()` reader macro.
+;; **
+
+;; @@
+;; using fn
+(def greet __)   
+
+;; using #()
+(def greet __)   
+;; @@
+
+;; **
+;;; ### Arities with defaults
+;;; 
+;;; Define a function `greeting` which:
+;;; 
+;;; * Given no arguments, returns "Hello, World!"
+;;; * Given one argument x, returns "Hello, *x*!"
+;;; * Given two arguments x and y, returns "*x*, *y*!"
+;; **
+
+;; @@
+;; Hint use the str function to concatenate strings
+(doc str)
+
+(defn greeting ___)
+
+;; For testing 
+(assert (= "Hello, World!" (greeting)))
+(assert (= "Hello, Clojure!" (greeting "Clojure")))
+(assert (= "Good morning, Clojure!" (greeting "Good morning" "Clojure")))
+;; @@
+
+;; **
+;;; ### Do nothing
+;;; 
+;;; Define a function `do-nothing` which takes a single argument `x` and returns it, unchanged.
+;; **
+
+;; @@
+(defn do-nothing [x] ___)
+;; @@
+
+;; **
+;;; In Clojure, this is the `identity` function. By itself, identity is not very useful, but it is sometimes necessary when working with higher-order functions.
+;; **
+
+;; @@
+(source identity)
+;; @@
+
+;; **
+;;; ### Do one thing well
+;;; 
+;;; Define a function `always-thing` which takes any number of arguments, ignores all of them, and returns the keyword `:thing`.
+;; **
+
+;; @@
+(defn always-thing [__] ___)
+;; @@
+
+;; **
+;;; ### Do many things
+;;; 
+;;; Define a function `make-thingy` which takes a single argument `x`. It should return another function, which takes any number of arguments and always returns x.
+;; **
+
+;; @@
+(defn make-thingy [x] ___)
+
+;; Tests
+(let [n (rand-int Integer/MAX_VALUE)
+      f (make-thingy n)]
+  (assert (= n (f)))
+  (assert (= n (f :foo)))
+  (assert (= n (apply f :foo (range)))))
+;; @@
+
+;; **
+;;; In Clojure, this is the `constantly` function.
+;; **
+
+;; @@
+(source constantly)
+;; @@
+
+;; **
+;;; ### In triplicate
+;;; 
+;;; Define a function `triplicate` which takes another function and calls it three times, without any arguments.
+;; **
+
+;; @@
+(defn triplicate [f] ___)
+;; @@
