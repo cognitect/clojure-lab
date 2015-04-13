@@ -440,3 +440,114 @@ vector
 ;; @@
 (defn triplicate [f] ___)
 ;; @@
+
+;; **
+;;; ### Do the opposite
+;;; 
+;;; Define a function `opposite` which takes a single argument `f`. It should return another function which takes any number of arguments, applies `f` on them, and then calls `not` on the result. The `not` function in Clojure does logical negation.
+;; **
+
+;; @@
+(defn opposite [f]
+  (fn [& args] ___))
+;; @@
+
+;; **
+;;; In Clojure, this is the complement function.
+;; **
+
+;; @@
+(defn complement
+  "Takes a fn f and returns a fn that takes the same arguments as f,
+  has the same effects, if any, and returns the opposite truth value."
+  [f] 
+  (fn 
+    ([] (not (f)))
+    ([x] (not (f x)))
+    ([x y] (not (f x y)))
+    ([x y & zs] (not (apply f x y zs)))))
+;; @@
+
+;; **
+;;; ### In triplicate redux
+;;; 
+;;; Define a function `triplicate2` which takes another function and any number of arguments, then calls that function three times on those arguments. Re-use the function you defined in the earlier triplicate exercise.
+;; **
+
+;; @@
+(defn triplicate2 [f & args]
+  (triplicate ___))
+;; @@
+
+;; **
+;;; ### Squaring the circle
+;;; 
+;;; Using the [java.lang.Math](http://docs.oracle.com/javase/7/docs/api/java/lang/Math.html) class, demonstrate the following mathematical facts:
+;;; 
+;;; * The cosine of pi is -1
+;;; * For some x, sin(x)^2 + cos(x)^2 = 1
+;; **
+
+;; @@
+;; use: Math/cos Math/PI Math/pow Math/sin
+
+;; @@
+
+;; **
+;;; ### Go fetch
+;;; 
+;;; Define a function that takes an HTTP URL as a string, fetches that URL from the web, and returns the content as a string.
+;;; 
+;;; Hint: Using the [java.net.URL](http://docs.oracle.com/javase/7/docs/api/java/net/URL.html) class and its `openStream` method. Then use the Clojure `slurp` function to get the content as a string.
+;; **
+
+;; @@
+(defn http-get [url]
+  ___)
+
+(assert (.contains (http-get "http://www.w3.org") "html"))
+;; @@
+
+;; **
+;;; In fact, the Clojure `slurp` function interprets its argument as a URL first before trying it as a file name. Write a simplified http-get:
+;; **
+
+;; @@
+(defn http-get [url]
+  ___)
+;; @@
+
+;; **
+;;; ### Partial function application
+;;; 
+;;; Define a function `one-less-arg` that takes two arguments:
+;;; * `f`, a function
+;;; * `v`, a value
+;;; 
+;;; and returns another function which calls `f` on `x` plus any additional arguments.
+;;; 
+;; **
+
+;; @@
+(defn one-less-arg [f x]
+  (fn [& args] ___))
+;; @@
+
+;; **
+;;; In Clojure, the `partial` function is a more general version of this.
+;;; 
+;;; ### Function Composition
+;;; 
+;;; Define a function `two-fns` which takes two functions as arguments, `f` and `g`. It returns another function which takes one argument, calls `g` on it, then calls `f` on the result, and returns that.
+;;; 
+;;; That is, your function returns the composition of `f` and `g`.
+;; **
+
+;; @@
+(defn two-fns [f g]
+  ___)
+;; @@
+
+;; **
+;;; 
+;; **
