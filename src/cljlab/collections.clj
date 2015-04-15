@@ -246,5 +246,148 @@ v
 ;; **
 
 ;; **
+;;; ## Maps
+;;; 
+;;; Maps are commonly used for two purposes - to represent entities and to manage an association of keys to values. We'll focus on the latter use first. In other language these may be known as dictionaries or hash maps.
+;;; 
+;;; ### Creating a literal map
+;;; 
+;;; Maps are represented as alternating keys and values surrounded by `{` and `}`.
+;; **
+
+;; @@
+(def scores {"Una" 1400
+             "Bob" 1240
+             "Cid" 1024})
+;; @@
+
+;; **
+;;; When Clojure prints a map at the REPL, it will put `,`'s between each key/value pair. These are purely used for readability - commas are treated as whitespace in Clojure. Feel free to use them in cases where they help you!
+;;; 
+;; **
+
+;; @@
+;; same as the last one!
+(def scores {"Una" 1400, "Bob" 1240, "Cid" 1024})
+;; @@
+
+;; **
+;;; ### Looking up by key
+;;; 
+;;; There are several ways to look up a value in a map. The most obvious is the function `get`:
+;; **
+
+;; @@
+(get scores "Cid")
+;;=> 1024
+;; @@
+
+;; **
+;;; When the map in question is being treated as a constant lookup table, its common to invoke the map itself, treating it as a function:
+;; **
+
+;; @@
+;; a constant lookup table, perhaps used in a game
+(def directions {:north 0
+                 :east 1
+                 :south 2
+                 :west 3})
+
+;; invoke the map as a function
+(directions :north)
+;;=> 0
+;; @@
+
+;; **
+;;; You should generally not invoke a map like this if there is any chance the map could be nil:
+;; **
+
+;; @@
+(def bad-lookup-map nil)
+
+;; What will happen?
+(bad-lookup-map :foo)
+;; @@
+
+;; **
+;;; ### Looking up with a default
+;;; 
+;;; If you want to do a lookup and fall back to a default value when the key is not found, specify the default as an extra parameter:
+;; **
+
+;; @@
+(get scores "Samwise" 0)
+;;=> 0
+
+(directions :northwest -1)
+;;=> -1
+;; @@
+
+;; **
+;;; Using a default is also helpful to distinguish between a missing key and an existing key with a nil value.
+;; **
+
+;; **
+;;; ### Checking contains
+;;; 
+;;; There are two other functions that are helpful in checking whether a map contains an entry.
+;; **
+
+;; @@
+(contains? scores "Una")
+;;=> true
+
+(find scores "Una")
+;;=> ["Una" 1400]
+;; @@
+
+;; **
+;;; The `contains?` function is a predicate for checking containment. The `find` function finds the key/value entry in a map, not just the value.
+;; **
+
+;; **
+;;; ### Keys or values
+;;; 
+;;; You can also get just the keys or just the values in a map:
+;; **
+
+;; @@
+(keys scores)
+;;=> ("Una" "Bob" "Cid")
+
+(vals scores)
+;;=> (1400 1240 1024)
+;; @@
+
+;; **
+;;; While maps are unordered, there is a guarantee that keys, vals, and other functions that walk in "sequence" order will always walk a particular map instance entries in the same order.
+;; **
+
+;; **
+;;; ### Building a map
+;;; 
+;;; The `zipmap` function can be used to "zip" together two sequences (the keys and vals) into a map:
+;; **
+
+;; @@
+(def players #{"Alice" "Bob" "Kelly"})
+
+(zipmap players (repeat 0))
+;;=> {"Kelly" 0, "Bob" 0, "Alice" 0}
+;; @@
+
+;; **
+;;; You can get the same outcome with into:
+;; **
+
+;; @@
+(into {} (map #([% 0])))
+;; @@
+
+;; **
+;;; 
+;; **
+
+;; **
 ;;; 
 ;; **
