@@ -565,7 +565,7 @@
 ;; @@
 
 ;; **
-;;; ![Collections list as a seq](../../images/collections-seq-list-initial.svg)
+;;; ![Collections list as a seq](project-files/images/collections-seq-list-initial.svg)
 ;; **
 
 ;; @@
@@ -573,7 +573,7 @@
 ;; @@
 
 ;; **
-;;; ![Collections seq list first](../../images/collections-seq-list-first.svg)
+;;; ![Collections seq list first](project-files/images/collections-seq-list-first.svg)
 ;; **
 
 ;; @@
@@ -581,7 +581,7 @@
 ;; @@
 
 ;; **
-;;; ![Collections list as a seq](../../images/collections-seq-list-rest.svg)
+;;; ![Collections list as a seq](project-files/images/collections-seq-list-rest.svg)
 ;; **
 
 ;; @@
@@ -590,7 +590,7 @@
 ;; @@
 
 ;; **
-;;; ![Collections list as a seq](../../images/collections-seq-list-second.svg)
+;;; ![Collections list as a seq](project-files/images/collections-seq-list-second.svg)
 ;; **
 
 ;; **
@@ -602,7 +602,7 @@
 ;; @@
 
 ;; **
-;;; ![Collections list as a seq](../../images/collections-seq-vector-initial.svg)
+;;; ![Collections list as a seq](project-files/images/collections-seq-vector-initial.svg)
 ;; **
 
 ;; @@
@@ -610,7 +610,7 @@
 ;; @@
 
 ;; **
-;;; ![Collections seq vector seq](../../images/collections-seq-vector-seq.svg)
+;;; ![Collections seq vector seq](project-files/images/collections-seq-vector-seq.svg)
 ;; **
 
 ;; @@
@@ -618,7 +618,7 @@
 ;; @@
 
 ;; **
-;;; ![Collections seq vector first](../../images/collections-seq-vector first.svg)
+;;; ![Collections seq vector first](project-files/images/collections-seq-vector-first.svg)
 ;; **
 
 ;; @@
@@ -626,7 +626,7 @@
 ;; @@
 
 ;; **
-;;; ![Collections seq vector rest](../../images/collections-seq-vector-rest.svg)
+;;; ![Collections seq vector rest](project-files/images/collections-seq-vector-rest.svg)
 ;; **
 
 ;; @@
@@ -635,7 +635,7 @@
 ;; @@
 
 ;; **
-;;; ![Collections seq vector second](../../images/collections-seq-vector-second.svg)
+;;; ![Collections seq vector second](project-files/images/collections-seq-vector-second.svg)
 ;; **
 
 ;; **
@@ -650,7 +650,7 @@
 ;; @@
 
 ;; **
-;;; ![Collections seq lazy initial](../../images/collections-seq-lazy-initial.svg)
+;;; ![Collections seq lazy initial](project-files/images/collections-seq-lazy-initial.svg)
 ;; **
 
 ;; @@
@@ -658,7 +658,7 @@
 ;; @@
 
 ;; **
-;;; ![Collections seq lazy first](../../images/collections-seq-lazy-first.svg)
+;;; ![Collections seq lazy first](project-files/images/collections-seq-lazy-first.svg)
 ;; **
 
 ;; @@
@@ -666,7 +666,7 @@
 ;; @@
 
 ;; **
-;;; ![Collections seq lazy rest](../../images/collections-seq-lazy-rest.svg)
+;;; ![Collections seq lazy rest](project-files/images/collections-seq-lazy-rest.svg)
 ;; **
 
 ;; @@
@@ -675,7 +675,7 @@
 ;; @@
 
 ;; **
-;;; ![Collections seq lazy second](../../images/collections-seq-lazy-second.svg)
+;;; ![Collections seq lazy second](project-files/images/collections-seq-lazy-second.svg)
 ;; **
 
 ;; @@
@@ -684,7 +684,7 @@
 ;; @@
 
 ;; **
-;;; ![Collections seq lazy third](../../images/collections-seq-lazy-third.svg)
+;;; ![Collections seq lazy third](project-files/images/collections-seq-lazy-third.svg)
 ;;; 
 ;;; ### Sequences and garbage collection
 ;; **
@@ -694,7 +694,7 @@
 ;; @@
 
 ;; **
-;;; ![Collections seq lazy GC safe](../../images/collections-seq-lazy-GC-safe.svg)
+;;; ![Collections seq lazy GC safe](project-files/images/collections-seq-lazy-GC-safe.svg)
 ;;; 
 ;;; ### Holding onto the head
 ;; **
@@ -705,7 +705,7 @@
 ;; @@
 
 ;; **
-;;; ![Collections seq lazy GC unsafe](../../images/collections-seq-lazy-GC-unsafe.svg)
+;;; ![Collections seq lazy GC unsafe](project-files/images/collections-seq-lazy-GC-unsafe.svg)
 ;;; 
 ;;; ### Sequences in the REPL
 ;;; * REPL always prints sequences with parens
