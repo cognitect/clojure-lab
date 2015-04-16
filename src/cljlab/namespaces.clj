@@ -227,7 +227,7 @@
 ;; **
 ;;; ### Namespace concepts
 ;;; Click on the image to view full-size in a new window (in browsers that support SVG).
-;;; ![Namespace concepts](../../images/namespaces-total.svg)
+;;; ![Namespace concepts](project-files/images/namespaces-total.svg)
 ;;; 
 ;;; ### File vs. REPL
 ;;; ```clojure
