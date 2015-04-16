@@ -31,12 +31,30 @@
 ;;; * Language-level constructs to manage change
 ;;; * No locking in user code
 ;;; 
+;; **
+
+;; **
 ;;; ## Conceptual Model
 ;;; 
 ;;; ### Modeling Change
 ;;; 
-;;; TODO: pictures
+;;; ![Structure vs semantics](project-files/images/state1.png)
 ;;; 
+;;; ![Structure vs semantics](project-files/images/state2.png)
+;;; 
+;;; ![Structure vs semantics](project-files/images/state3.png)
+;;; 
+;;; ![Structure vs semantics](project-files/images/state4.png)
+;;; 
+;;; ![Structure vs semantics](project-files/images/state5.png)
+;;; 
+;;; 
+;;; 
+;;; 
+;;;     
+;; **
+
+;; **
 ;;; ### Uniform State Transition Model
 ;;; 
 ;;; * `(change-fn reference function args*)`
@@ -59,8 +77,6 @@
 ;;; ## Atoms
 ;;; 
 ;;; Atoms are the simplest of the reference types - they allow us to share a stable identity for a single value across threads. Changes become visible to all threads at the same time.
-;;; 
-;;;     
 ;; **
 
 ;; @@
