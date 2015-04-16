@@ -764,3 +764,13 @@ v
 (defn remove-player [game name]
   ___)
 ;; @@
+
+;; **
+;;; 
+;;; ## Navigation
+;;; 
+;;; * [Up (Home)](/worksheet.html?filename=src/cljlab/start.clj)
+;;; * [Previous (Functions)](/worksheet.html?filename=src/cljlab/functions.clj)
+;;; * [Next (Flow Control)](/worksheet.html?filename=src/cljlab/flowcontrol.clj)
+;;; 
+;; **

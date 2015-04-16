@@ -6,10 +6,6 @@
 ;;; 
 ;; **
 
-;; @@
-(ns cljlab.sequences)
-;; @@
-
 ;; **
 ;;; ## Sequences overview
 ;;; ### Not really a data structure
@@ -1082,4 +1078,13 @@ GUNBYGUNCWUF FIACW, UHX ULNCZCWCUF CHNYFFCAYHWY.")
 
 ;; **
 ;;; The text is the opening paragraph of the [LISP I Programmer's Manual (PDF)](http://history.siam.org/sup/Fox_1960_LISP.pdf), published in 1960.
+;; **
+
+;; **
+;;; 
+;;; ## Navigation
+;;; 
+;;; * [Up (Home)](/worksheet.html?filename=src/cljlab/start.clj)
+;;; * [Previous (Namespaces)](/worksheet.html?filename=src/cljlab/namespaces.clj)
+;;; * [Next (Polymorphism)](/worksheet.html?filename=src/cljlab/polymorphism.clj)
 ;; **

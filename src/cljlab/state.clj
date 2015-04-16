@@ -422,4 +422,13 @@ foo
 
 ;; **
 ;;; 
+;;; ## Navigation
+;;; 
+;;; * [Up (Home)](/worksheet.html?filename=src/cljlab/start.clj)
+;;; * [Previous (Polymorphism))](/worksheet.html?filename=src/cljlab/polymorphism.clj)
+;;; 
+;; **
+
+;; **
+;;; 
 ;; **

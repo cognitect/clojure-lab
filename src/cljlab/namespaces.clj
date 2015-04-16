@@ -6,10 +6,6 @@
 ;;; 
 ;; **
 
-;; @@
-(ns cljlab.namespaces)
-;; @@
-
 ;; **
 ;;; ## What is a namespace?
 ;;; * Conceptual version
@@ -160,6 +156,10 @@
 ;;;     
 ;;; ### `in-ns`
 ;; **
+
+;; @@
+(ns cljlab.namespaces)
+;; @@
 
 ;; @@
 (in-ns 'never-before-seen)
@@ -482,3 +482,12 @@ clojure.set
 ;; SOLUTION
 (student.dialect/canadianize "Nice weather today.")
 ;; @@
+
+;; **
+;;; 
+;;; ## Navigation
+;;; 
+;;; * [Up (Home)](/worksheet.html?filename=src/cljlab/start.clj)
+;;; * [Previous (Flow Control)](/worksheet.html?filename=src/cljlab/flowcontrol.clj)
+;;; * [Next (Sequences)](/worksheet.html?filename=src/cljlab/sequences.clj)
+;; **

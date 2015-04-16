@@ -550,4 +550,14 @@ vector
 
 ;; **
 ;;; 
+;;; ## Navigation
+;;; 
+;;; * [Up (Home)](/worksheet.html?filename=src/cljlab/start.clj)
+;;; * [Previous (Syntax)](/worksheet.html?filename=src/cljlab/syntax.clj)
+;;; * [Next (Collections)](/worksheet.html?filename=src/cljlab/collections.clj)
+;;; 
+;; **
+
+;; **
+;;; 
 ;; **

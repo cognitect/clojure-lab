@@ -6,10 +6,6 @@
 ;;; 
 ;; **
 
-;; @@
-(ns cljlab.flowcontrol)
-;; @@
-
 ;; **
 ;;; ## Statements vs. Expressions
 ;;; In Java, expressions return values, whereas statements do not.
@@ -40,6 +36,10 @@
 ;;; ## `if`
 ;;; ~\* explanation here \*~
 ;; **
+
+;; @@
+(ns cljlab.flowcontrol)
+;; @@
 
 ;; @@
 (str "2 is " (if (even? 2) "even" "odd"))
@@ -606,3 +606,12 @@
 (assert (true? (binary-search 54 (range 0 100 2))))
 (assert (true? (binary-search 98 (range 0 100 2))))
 ;; @@
+
+;; **
+;;; 
+;;; ## Navigation
+;;; 
+;;; * [Up (Home)](/worksheet.html?filename=src/cljlab/start.clj)
+;;; * [Previous (Collections)](/worksheet.html?filename=src/cljlab/collections.clj)
+;;; * [Next (Namespaces)](/worksheet.html?filename=src/cljlab/namespaces.clj)
+;; **
