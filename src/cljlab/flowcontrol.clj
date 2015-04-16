@@ -34,12 +34,9 @@
 ;;; Flow control operators are also extensible via macros, which allow the compiler to be extended by user code. We won't be discussing macros today, but you can read more about them at [Clojure.org](http://clojure.org/macros), [Clojure from the Ground Up](https://aphyr.com/posts/305-clojure-from-the-ground-up-macros), or [Clojure for the Brave and True](http://www.braveclojure.com/writing-macros/), among many other places.
 ;;; 
 ;;; ## `if`
-;;; ~\* explanation here \*~
+;;; 
+;;; `if` is the most important conditional expression - it consists of a condition, a "then", and an "else". `if` will only evaluate the branch selected by the conditional.
 ;; **
-
-;; @@
-(ns cljlab.flowcontrol)
-;; @@
 
 ;; @@
 (str "2 is " (if (even? 2) "even" "odd"))
@@ -52,7 +49,8 @@
 
 ;; **
 ;;; ## Truthiness
-;;; ~\* explanation here \*~
+;;; 
+;;; In Clojure, all values are "truthy" or not. The only "false" values are `false` and `nil` - all other values are "truthy".
 ;; **
 
 ;; @@
@@ -85,7 +83,10 @@
 
 ;; **
 ;;; ## `if` and `do`
-;;; ~\* explanation here \*~
+;;; 
+;;; The `if` only takes a single expression for the "then" and "else". Use do to create larger blocks that are a single expression. 
+;;; 
+;;; Note that the only reason to do this is if your bodies have side effects! (Why?)
 ;; **
 
 ;; @@
@@ -98,16 +99,21 @@
 
 ;; **
 ;;; ## `when`
-;;; ~\* explanation here \*~
+;;; 
+;;; `when` is a one-armed `if`. It checks a condition and then evaluates any number of statements as a body (so no `do` is required). The value of the last expression is returned. If the condition is false, nil is returned.
+;;; 
+;;; `when` communicates to a reader that there is no "else" branch.	
 ;; **
 
 ;; @@
-;; example here
+(when (neg? x)
+  (throw (RuntimeException. (str "x must be positive: " x))))
 ;; @@
 
 ;; **
 ;;; ## `cond`
-;;; ~\* explanation here \*~
+;;; 
+;;; `cond` is a series of tests and expressions. Each test is evaluated in order and the expression is evaluated and returned for the first true test. 
 ;; **
 
 ;; @@
@@ -119,7 +125,8 @@
 
 ;; **
 ;;; ## `cond` and `else`
-;;; ~\* explanation here \*~
+;;; 
+;;; If no test is satisfied, nil is returned. A common idiom is to use a final test of `:else`. Keywords (like `:else`) always evaluate to true so this will always be selected as a default.
 ;; **
 
 ;; @@
@@ -132,7 +139,8 @@
 
 ;; **
 ;;; ## `case`
-;;; ~\* explanation here \*~
+;;; 
+;;; `case` compares an argument to a series of values to find a match. This is done in constant (not linear) time! However, each value must be a compile-time literal (numbers, strings, keywords, etc).
 ;; **
 
 ;; @@
@@ -146,13 +154,18 @@
 (foo 10)
 ;; @@
 
+;; **
+;;; Unlike `cond`, `case` will throw an exception if no value matches:
+;; **
+
 ;; @@
 (foo 11)
 ;; @@
 
 ;; **
 ;;; ## `case` with else-expression
-;;; ~\* explanation here \*~
+;;; 
+;;; `case` can have a final trailing expression that will be evaluated if no test matches.
 ;; **
 
 ;; @@
@@ -164,15 +177,11 @@
 ;; @@
 
 ;; @@
-(foo 5)
-;; @@
-
-;; @@
 (foo 10)
 ;; @@
 
 ;; @@
-(foo 11)
+(foo 11)  ;; falls into default instead of erroring
 ;; @@
 
 ;; **
@@ -236,7 +245,7 @@
 ;;; * Sequences represent iteration as values
 ;;;   * Consumers can partially iterate
 ;;; * Reducers represent iteration as function composition
-;;;   * New in Clojure 1.5, not convered here
+;;;   * Added in Clojure 1.5, not convered here
 ;;; 
 ;;; ### `loop` and `recur`
 ;;; * Functional looping construct
