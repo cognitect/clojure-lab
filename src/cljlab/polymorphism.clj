@@ -330,6 +330,8 @@
 ;;; * Scissors beats Paper
 ;;; * Paper beats Rock
 ;;; 
+;;; (For each section, the solutions are available at the bottom.)
+;;; 
 ;;; ## World domination 
 ;;; 
 ;;; Define a function dominates that takes a keyword argument and returns the keyword naming the thing that beats it.
