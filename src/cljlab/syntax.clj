@@ -70,8 +70,8 @@ clojure.core/+  ; Namespaced symbol
 ;;; In Clojure, source code is read as characters by the Reader. The Reader may read the source either from .clj files or be given a series of expressions interactively. The Reader produces Clojure data. The Clojure compiler then produces the bytecode for the JVM. 
 ;;; 
 ;;; There are two important points here:
-;;; 1. The unit of source code is a Clojure expression, not a Clojure source file. Source files are read as a series of expressions or individual expressions may be sent interactively.
-;;; 2. Separating the Reader and the Compiler is a key feature that allows for macros. Macros take code as data, and emit code as data. Can you see where a loop for macro expansion could be inserted in the evaluation model?
+;;; 1. The unit of source code is a *Clojure expression*, not a Clojure source file. Source files are read as a series of expressions, just as if you typed those expressions interactively at the REPL.
+;;; 2. Separating the Reader and the Compiler is a key separation that makes room for macros. Macros are special functions that take code (as data), and emit code (as data). Can you see where a loop for macro expansion could be inserted in the evaluation model?
 ;; **
 
 ;; **
@@ -114,7 +114,7 @@ clojure.core/+  ; Namespaced symbol
 ;; **
 
 ;; **
-;;; Sometimes it's useful to avoid the evaluation rules, in particular for symbols and lists. Sometimes a symbol should just be a symbol:
+;;; Sometimes it's useful to avoid the evaluation rules, in particular for symbols and lists. Sometimes a symbol should just be a symbol without looking up what it refers to:
 ;; **
 
 ;; @@
@@ -125,7 +125,7 @@ clojure.core/+  ; Namespaced symbol
 ;; <=
 
 ;; **
-;;; And sometimes a list should just be a list of data (not code):
+;;; And sometimes a list should just be a list of data values (not code to evaluate):
 ;; **
 
 ;; @@
@@ -159,7 +159,7 @@ clojure.core/+  ; Namespaced symbol
 ;; <=
 
 ;; **
-;;; For now, don't worry too much about quote but it shows up on this page once or twice to delay evaluation of symbols or lists.
+;;; For now, don't worry too much about quote but you will see it occasionally in these materials to avoid evaluation of symbols or lists.
 ;; **
 
 ;; **
@@ -172,7 +172,7 @@ clojure.core/+  ; Namespaced symbol
 ;;; 3. Print the result by converting it from data back to characters.
 ;;; 4. Loop back to the beginning.
 ;;; 
-;;; One important aspect of #2 is that Clojure always compiles the expression before executing it; Clojure is never interpreted, always compiled first.
+;;; One important aspect of #2 is that Clojure always compiles the expression before executing it; Clojure is **always** compiled to JVM bytecode. There is no Clojure interpreter. 
 ;; **
 
 ;; @@
