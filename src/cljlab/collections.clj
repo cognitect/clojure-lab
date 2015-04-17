@@ -585,6 +585,8 @@ v
 ;; **
 ;;; # LAB: Collections
 ;;; 
+;;; **Note:** All lab solutions are in the section following this one if you want to check your answers!
+;;; 
 ;;; ## Building Collections 
 ;;; 
 ;;; ### Representing scores in a game
@@ -763,6 +765,99 @@ v
 ;; @@
 (defn remove-player [game name]
   ___)
+;; @@
+
+;; **
+;;; # Lab Solutions
+;;; 
+;;; ### Add a new player to the scores
+;; **
+
+;; @@
+(assoc scores "Mel" 0)
+;; @@
+
+;; **
+;;; ### Representing a player
+;;; 
+;; **
+
+;; @@
+;; as map
+{:name "Una" :ranking 43}
+
+;; as record
+(defrecord Player [name ranking])
+
+;; define a player
+(->Player "Una" 43)
+;; @@
+
+;; **
+;;; ### Retrieving a player's name
+;; **
+
+;; @@
+(get player :ranking)
+(player :ranking)  ;; will not work for records
+(:ranking player)
+;; @@
+
+;; **
+;;; ### Advance to the next round
+;; **
+
+;; @@
+(defn next-round [game]
+  (update-in game [:round] inc))
+;; @@
+
+;; **
+;;; ### Update the scores
+;;; 
+;; **
+
+;; @@
+(defn add-score [name score]
+  (update-in game [:scores name] + score))
+;; @@
+
+;; **
+;;; ### Add a new player
+;;; 
+;; **
+
+;; @@
+(defn add-player [game name]
+  (update-in (update-in game [:players] conj {:name name})
+             [:scores] assoc name 0))
+;; @@
+
+;; **
+;;; ### Looking up a player
+;; **
+
+;; **
+;;; A map indexing the players by name.
+;; **
+
+;; **
+;;; ### Find a player
+;; **
+
+;; @@
+(defn find-player [game name]
+  (get-in game [:players name]))
+;; @@
+
+;; **
+;;; ### Remove a player
+;;; 
+;; **
+
+;; @@
+(defn remove-player [game name]
+  (update-in game [:players] dissoc name))
 ;; @@
 
 ;; **
