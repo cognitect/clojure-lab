@@ -549,6 +549,134 @@ vector
 ;; @@
 
 ;; **
+;;; # Lab Solutions
+;;; 
+;;; **Note:** All lab solutions are in the section following this one if you want to check your answers!
+;;; 
+;;; ### Defining a function
+;; **
+
+;; @@
+(defn greet []
+  (println "Hello"))
+;; @@
+
+;; **
+;;; ### Different ways to define functions
+;; **
+
+;; @@
+(def greet (fn [] (println "Hello")))
+
+(def greet #(println "Hello"))
+;; @@
+
+;; **
+;;; ### Arities with defaults
+;; **
+
+;; @@
+(defn greeting
+  ([] (greeting "Hello" "World"))
+  ([x] (greeting "Hello" x))
+  ([x y] (str x ", " y "!")))
+;; @@
+
+;; **
+;;; ### Do nothing
+;; **
+
+;; @@
+(defn do-nothing [x] x)
+;; @@
+
+;; **
+;;; ### Do one thing well
+;;; 
+;;; 
+;; **
+
+;; @@
+(defn always-thing [& args] :thing)
+;; @@
+
+;; **
+;;; ### Do many things
+;; **
+
+;; @@
+(defn make-thingy [x]
+  (fn [& args] x))
+;; @@
+
+;; **
+;;; ### In triplicate
+;; **
+
+;; @@
+(defn triplicate [f]
+  (f) (f) (f))
+;; @@
+
+;; **
+;;; ### Do the opposite
+;; **
+
+;; @@
+(defn opposite [f]
+  (fn [& args] (not (apply f args))))
+;; @@
+
+;; **
+;;; ### In triplicate redux
+;; **
+
+;; @@
+(defn triplicate2 [f & args]
+  (triplicate (fn [] (apply f args))))
+;; @@
+
+;; **
+;;; ### Squaring the circle
+;; **
+
+;; @@
+(Math/cos Math/PI)
+;;=> -1.0
+
+(+ (Math/pow (Math/sin Math/PI) 2)
+   (Math/pow (Math/cos Math/PI) 2))
+;;=> 1.0
+;; @@
+
+;; **
+;;; ### Go fetch
+;; **
+
+;; @@
+(defn http-get [url]
+  (slurp (.openStream (java.net.URL. url))))
+;; @@
+
+;; **
+;;; ### Partial function application
+;; **
+
+;; @@
+(defn one-less-arg [f x]
+  (fn [& args] (apply f x args)))
+;; @@
+
+;; **
+;;; ### Function composition
+;; **
+
+;; @@
+(defn two-fns [f g]
+  (fn [x] (f (g x))))
+;; @@
+
+;; **
 ;;; 
 ;;; ## Navigation
 ;;; 
