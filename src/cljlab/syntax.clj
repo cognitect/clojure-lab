@@ -496,7 +496,7 @@ clojure.core/+  ; Namespaced symbol
 ;;; ## Navigation
 ;;; 
 ;;; * [Up (Home)](/worksheet.html?filename=src/cljlab/start.clj)
-;;; * [Previous (Why Clojure?)](/worksheet.html?filename=src/cljlab/why.clj)
+;;; * [Previous (Home)](/worksheet.html?filename=src/cljlab/start.clj)
 ;;; * [Next (Functions)](/worksheet.html?filename=src/cljlab/functions.clj)
 ;;; 
 ;; **
