@@ -451,7 +451,7 @@ clojure.core/+  ; Namespaced symbol
 ;; **
 
 ;; **
-;;; Using the REPL, compute the sum of 7564 and 1234.
+;;; Using the REPL, compute the sum of 7654 and 1234.
 ;;; 
 ;; **
 
