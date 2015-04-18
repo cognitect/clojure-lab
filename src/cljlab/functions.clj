@@ -522,7 +522,7 @@ vector
 ;;; 
 ;;; Define a function `one-less-arg` that takes two arguments:
 ;;; * `f`, a function
-;;; * `v`, a value
+;;; * `x`, a value
 ;;; 
 ;;; and returns another function which calls `f` on `x` plus any additional arguments.
 ;;; 
