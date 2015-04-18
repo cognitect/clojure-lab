@@ -9,33 +9,33 @@ Clojure Lab materials
 - Install a [Java Development Kit](http://www.oracle.com/technetwork/java/javase/downloads/index.html) (1.6 or later)
 - Install the [leiningen build tool](http://leiningen.org/)
 
-### Step 1: Clone this repo
+1) Clone this repo
 
 ```
 git clone git@github.com:cognitect/clojure-lab.git
 cd clojure-lab
 ```
 
-### Step 2: Start the gorilla repl server 
+2) Start the gorilla repl server 
 
 ```
 lein gorilla :port 55555
 ```
 
-### Step 3: Open the lab page in your web browser
+3) Open the lab page in your web browser
 
 [Start](http://127.0.0.1:55555/worksheet.html?filename=src/cljlab/start.clj)
 
 ## Creating a standalone package 
 
-Create the uberjar:
+1) Create the uberjar:
 
 ```
 rm target
 lein uberjar
 ```
 
-Compress the directory into a zip (this may vary per platform):
+2) Compress the directory into a zip (this may vary per platform):
 
 ```
 cd ..
@@ -44,20 +44,20 @@ zip -r clojure-lab clojure-lab/images clojure-lab/src clojure-lab/target/*-stand
 
 ## Running the standalone package
 
-### Step 1: Unzip the zip file 
+1) Unzip the zip file 
 
 ```
 unzip clojure-lab.zip
 cd clojure-lab
 ```
 
-### Step 2: Start the server
+2) Start the server
 
 ```
 java -jar target/clojure-lab-0.1.0-SNAPSHOT-standalone.jar
 ```
 
-### Step 3: View the page in your browser
+3) View the page in your browser
 
 [Start](http://127.0.0.1:55555/worksheet.html?filename=src/cljlab/start.clj)
 
