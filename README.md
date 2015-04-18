@@ -2,7 +2,7 @@
 
 Clojure Lab materials 
 
-## Usage
+## Run from repository
 
 ### Prerequisites
 
@@ -23,6 +23,41 @@ lein gorilla :port 55555
 ```
 
 ### Step 3: Open the lab page in your web browser
+
+[Start](http://127.0.0.1:55555/worksheet.html?filename=src/cljlab/start.clj)
+
+## Creating a standalone package 
+
+Create the uberjar:
+
+```
+rm target
+lein uberjar
+```
+
+Compress the directory into a zip (this may vary per platform):
+
+```
+cd ..
+zip -r clojure-lab clojure-lab/images clojure-lab/src clojure-lab/target/*-standalone.jar
+```
+
+## Running the standalone package
+
+### Step 1: Unzip the zip file 
+
+```
+unzip clojure-lab.zip
+cd clojure-lab
+```
+
+### Step 2: Start the server
+
+```
+java -jar target/clojure-lab-0.1.0-SNAPSHOT-standalone.jar
+```
+
+### Step 3: View the page in your browser
 
 [Start](http://127.0.0.1:55555/worksheet.html?filename=src/cljlab/start.clj)
 
