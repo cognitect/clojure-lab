@@ -522,7 +522,7 @@
 ;;;       if A == 0
 ;;;           return B
 ;;;         if B == 0
-;;;           return B
+;;;           return A
 ;;;         if A > B
 ;;;           A := A - B
 ;;;         else
