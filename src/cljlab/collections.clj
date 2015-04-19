@@ -150,7 +150,7 @@ v
 ;;; 
 ;;; * Efficient access to the first element
 ;;; * Efficiently remove the first element (`pop`)
-;;; * Preserve a reverse order of inputs (list in, first out)
+;;; * Preserve a reverse order of inputs (last in, first out)
 ;;; * Simulating a stack
 ;; **
 
