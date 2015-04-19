@@ -514,7 +514,7 @@
 
 ;; **
 ;;; ## Euclid's algorithm
-;;; [Euclid's algorithm](http://en.wikipedia.org/wiki/Euclidean_algorithm) finds the greatest common divisor of two integers using only substraction. In imperative pseudo-code, it looks like this:
+;;; [Euclid's algorithm](http://en.wikipedia.org/wiki/Euclidean_algorithm) finds the greatest common divisor of two integers using only subtraction. In imperative pseudo-code, it looks like this:
 ;;; 
 ;;; ```
 ;;; function gcd(A, B):
