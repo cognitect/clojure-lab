@@ -100,7 +100,7 @@
 ;; **
 ;;; ## `when`
 ;;; 
-;;; `when` is a one-armed `if`. It checks a condition and then evaluates any number of statements as a body (so no `do` is required). The value of the last expression is returned. If the condition is false, nil is returned.
+;;; `when` is a one-armed `if`. It checks a condition and then evaluates any number of expressions as a body (so no `do` is required). The value of the last expression is returned. If the condition is false, nil is returned.
 ;;; 
 ;;; `when` communicates to a reader that there is no "else" branch.	
 ;; **
