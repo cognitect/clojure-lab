@@ -251,18 +251,18 @@
 
 ;; @@
 ;; Note: Not a comparator
-(sort-by :name [{:name "Bob" :age 33
-                 :name "Ali" :age 39
-                 :name "Mel" :age 22
-                 :name "Jim" :age 58}])
+(sort-by :name [{:name "Bob" :age 33}
+                {:name "Ali" :age 39}
+                {:name "Mel" :age 22}
+                {:name "Jim" :age 58}])
 ;; @@
 
 ;; @@
 ;; Note: Not a comparator
-(sort-by :age [{:name "Bob" :age 33
-                 :name "Ali" :age 39
-                 :name "Mel" :age 22
-                 :name "Jim" :age 58}])
+(sort-by :age [{:name "Bob" :age 33}
+               {:name "Ali" :age 39}
+               {:name "Mel" :age 22}
+               {:name "Jim" :age 58}])
 ;; @@
 
 ;; **
