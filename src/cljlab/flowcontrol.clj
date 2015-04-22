@@ -360,13 +360,8 @@
 ;; **
 
 ;; @@
-;; SOLUTION
 (defn check-guess [secret guess]
-  (if (= guess secret)
-    "You win!"
-    (if (< guess secret)
-      "Too low"
-      "Too high")))
+  _____)
 ;; @@
 
 ;; **
@@ -379,14 +374,8 @@
 ;; **
 
 ;; @@
-;; SOLUTION
 (defn check-guess [secret guess]
-  (cond (= guess secret)
-          "You win!"
-        (< guess secret)
-          "Too low"
-        :else
-          "Too high"))
+  _____)
 ;; @@
 
 ;; **
@@ -397,14 +386,10 @@
 ;; **
 
 ;; @@
-;; SOLUTION
 (defn triplicate [f]
-  (dotimes [i 3]
-    (f)))
-;; @@
+  _____)
 
-;; @@
-(triplicate #(prn :hi))
+(triplicate _____)
 ;; @@
 
 ;; **
@@ -414,8 +399,7 @@
 
 ;; @@
 (defn numbers [n]
-  (dotimes [i n]
-    (println i)))
+  _____)
 ;; @@
 
 ;; **
@@ -427,8 +411,7 @@
 
 ;; @@
 (defn counting [n]
-  (doseq [i (range 1 (inc n))]
-    (println i)))
+  _____)
 ;; @@
 
 ;; **
@@ -454,12 +437,8 @@
 ;; **
 
 ;; @@
-;; SOLUTION
 (defn print-bands [guitars basses drums]
-  (doseq [g guitars
-          b basses
-          d drums]
-    (println g b d)))
+  _____)
 ;; @@
 
 ;; **
@@ -471,10 +450,7 @@
 
 ;; @@
 (defn all-bands [guitars basses drums]
-  (for [g guitars
-        b basses
-        d drums]
-    [g b d]))
+  _____)
 ;; @@
 
 ;; **
@@ -489,27 +465,8 @@
 ;; **
 
 ;; @@
-;; SOLUTION
 (defn fizzbuzz []
-  (doseq [i (range 1 101)]
-    (println (cond (and (zero? (rem i 3))
-                        (zero? (rem i 5)))
-                   (zero? (rem i 3))
-                    "Fizz"
-                   (zero? (rem i 5))
-                    "Buzz"
-                   :else i))))
-;; @@
-
-;; @@
-;; SOLUTION
-;; If you want to avoid repeating the `rem` operation.
-(defn fizzbuzz []
-  (doseq [i (range 1 101)]
-    (let [fizz (if (zero? (rem i 3)) "Fizz")
-          buzz (if (zero? (rem i 5)) "Buzz")
-          number (if (not (or fizz buzz)) i)]
-      (println (str fizz buzz number)))))
+  _____)
 ;; @@
 
 ;; **
@@ -533,12 +490,8 @@
 ;; **
 
 ;; @@
-;; SOLUTION
 (defn gcd [a b]
-  (cond (zero? a) b
-        (zero? b) a
-        (> a b)   (recur (- a b) b)
-        :else   (recur a (- b a))))
+  _____)
 ;; @@
 
 ;; **
@@ -565,16 +518,8 @@
 ;; **
 
 ;; @@
-;; SOLUTION
 (defn guessing-game []
-  (let [secret (rand-int 100)]
-    (fn [guess]
-      (cond (= guess secret)
-              "You win!"
-            (< guess secret)
-              "Too low"
-            :else
-              "Too high"))))
+  _____)
 ;; @@
 
 ;; **
@@ -587,21 +532,12 @@
 ;; **
 
 ;; @@
-;; SOLUTION
 (defn binary-search [n nums]
-  (loop [start 0
-         end (count nums)]
-    (if (= start end)
-      false
-      (let [index (+ start (int (/ (- end start) 2)))
-            x (nth nums index)]
-        (cond (= n x) true
-              (< n x) (recur start index)
-              :else   (recur (inc index) end))))))
+  _____)
 ;; @@
 
 ;; **
-;;; And some tests:
+;;; As a hint, here are some tests:
 ;; **
 
 ;; @@
@@ -615,6 +551,180 @@
 (assert (true? (binary-search 54 (range 0 100 2))))
 (assert (true? (binary-search 98 (range 0 100 2))))
 ;; @@
+
+;; **
+;;; # Lab Solutions
+;;; 
+;;; ## I am thinking of a number
+;; **
+
+;; @@
+(defn check-guess [secret guess]
+  (if (= guess secret)
+    "You win!"
+    (if (< guess secret)
+      "Too low"
+      "Too high")))
+;; @@
+
+;; **
+;;; ## I am thinking of another number
+;; **
+
+;; @@
+(defn check-guess [secret guess]
+  (cond (= guess secret)
+          "You win!"
+        (< guess secret)
+          "Too low"
+        :else
+          "Too high"))
+;; @@
+
+;; **
+;;; ## Triplicate redux
+;; **
+
+;; @@
+(defn triplicate [f]
+  (dotimes [i 3]
+    (f)))
+
+(triplicate #(prn :hi))
+;; @@
+
+;; **
+;;; ## Printing numbers
+;; **
+
+;; @@
+(defn numbers [n]
+  (dotimes [i n]
+    (println i)))
+;; @@
+
+;; **
+;;; ## Counting numbers
+;; **
+
+;; @@
+(defn counting [n]
+  (doseq [i (range 1 (inc n))]
+    (println i)))
+;; @@
+
+;; **
+;;; ## Garage band
+;; **
+
+;; @@
+(defn print-bands [guitars basses drums]
+  (doseq [g guitars
+          b basses
+          d drums]
+    (println g b d)))
+;; @@
+
+;; **
+;;; ## Return of the garage band
+;; **
+
+;; @@
+(defn all-bands [guitars basses drums]
+  (for [g guitars
+        b basses
+        d drums]
+    [g b d]))
+;; @@
+
+;; **
+;;; ## Fizzbuzz
+;; **
+
+;; @@
+(defn fizzbuzz []
+  (doseq [i (range 1 101)]
+    (println (cond (and (zero? (rem i 3))
+                        (zero? (rem i 5)))
+                   (zero? (rem i 3))
+                    "Fizz"
+                   (zero? (rem i 5))
+                    "Buzz"
+                   :else i))))
+
+;; If you want to avoid repeating the `rem` operation.
+(defn fizzbuzz []
+  (doseq [i (range 1 101)]
+    (let [fizz (if (zero? (rem i 3)) "Fizz")
+          buzz (if (zero? (rem i 5)) "Buzz")
+          number (if (not (or fizz buzz)) i)]
+      (println (str fizz buzz number)))))
+;; @@
+
+;; **
+;;; ## Euclid's algorithm
+;; **
+
+;; @@
+(defn gcd [a b]
+  (cond (zero? a) b
+        (zero? b) a
+        (> a b)   (recur (- a b) b)
+        :else   (recur a (- b a))))
+;; @@
+
+;; **
+;;; ## Bonus: Guessing game
+;; **
+
+;; @@
+(defn guessing-game []
+  (let [secret (rand-int 100)]
+    (fn [guess]
+      (cond (= guess secret)
+              "You win!"
+            (< guess secret)
+              "Too low"
+            :else
+              "Too high"))))
+;; @@
+
+;; **
+;;; ## Bonus: Binary search
+;; **
+
+;; @@
+(defn binary-search [n nums]
+  (loop [start 0
+         end (count nums)]
+    (if (= start end)
+      false
+      (let [index (+ start (int (/ (- end start) 2)))
+            x (nth nums index)]
+        (cond (= n x) true
+              (< n x) (recur start index)
+              :else   (recur (inc index) end))))))
+;; @@
+
+;; **
+;;; 
+;; **
+
+;; **
+;;; 
+;; **
+
+;; **
+;;; 
+;; **
+
+;; **
+;;; ## 
+;; **
+
+;; **
+;;; ## 
+;; **
 
 ;; **
 ;;; 
