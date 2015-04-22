@@ -9,13 +9,18 @@
 ;; **
 ;;; ## How does this work?
 ;;; 
-;;; You are currently reading a page hosted by [Gorilla REPL](http://gorilla-repl.org/). A "REPL" is the **Read-Eval-Print-Loop** - the beating heart inside any LISP. The Gorilla REPL creates interactive web pages that are a mix of text (in markdown) and code (live REPLs).
+;;; You are currently reading a page hosted by [Gorilla REPL](http://gorilla-repl.org/). A "REPL" is the **Read-Eval-Print-Loop**--the beating heart inside any LISP. The Gorilla REPL creates interactive web pages that are a mix of text (in Markdown) and code (live REPLs).
 ;;; 
-;;; As you follow along in this course, you can evaluate any code block with Shift-Enter. For the full set of commands, type Ctrl-G Ctrl-G or use the drop-down in the upper right.
+;;; As you follow along in this course, you can 
 ;;; 
-;;; Because this page is editable, it will switch to edit mode when you select a text segment. This is somewhat annoying for this usage and an area we are working to improve, but for now, bear with it. 
+;;; * Evaluate any code block with Shift-Enter, or
+;;; * Save any page with Ctrl-G Ctrl-S.
 ;;; 
-;;; Also note, to avoid editing a block with a link, right click and "open in new tab" for any links.
+;;; For the full set of commands, type Ctrl-G Ctrl-G, or use the drop-down menu in the upper-right corner.
+;;; 
+;;; Because this page is editable, it will switch to edit mode when you select a text segment. This is somewhat annoying, and it is an area we are working to improve, but for now, please bear with us.
+;;; 
+;;; Also note, to avoid editing a block with a link, right-click on each link and select "Open in New Tab".
 ;;; 
 ;; **
 
