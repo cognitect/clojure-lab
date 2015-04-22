@@ -27,14 +27,14 @@
 ;; **
 ;;; ## Table of Contents
 ;;; 
-;;; * [Syntax](/worksheet.html?filename=src/cljlab/syntax.clj)
-;;; * [Functions](/worksheet.html?filename=src/cljlab/functions.clj)
-;;; * [Collections](/worksheet.html?filename=src/cljlab/collections.clj)
-;;; * [Flow Control](/worksheet.html?filename=src/cljlab/flowcontrol.clj)
-;;; * [Namespaces](/worksheet.html?filename=src/cljlab/namespaces.clj)
-;;; * [Sequences](/worksheet.html?filename=src/cljlab/sequences.clj)
-;;; * [Polymorphism](/worksheet.html?filename=src/cljlab/polymorphism.clj)
-;;; * [State](/worksheet.html?filename=src/cljlab/state.clj)
+;;; 1. [Syntax](/worksheet.html?filename=src/cljlab/syntax.clj)
+;;; 2. [Functions](/worksheet.html?filename=src/cljlab/functions.clj)
+;;; 3. [Collections](/worksheet.html?filename=src/cljlab/collections.clj)
+;;; 4. [Flow Control](/worksheet.html?filename=src/cljlab/flowcontrol.clj)
+;;; 5. [Namespaces](/worksheet.html?filename=src/cljlab/namespaces.clj)
+;;; 6. [Sequences](/worksheet.html?filename=src/cljlab/sequences.clj)
+;;; 7. [Polymorphism](/worksheet.html?filename=src/cljlab/polymorphism.clj)
+;;; 8. [State](/worksheet.html?filename=src/cljlab/state.clj)
 ;;; 
 ;; **
 
