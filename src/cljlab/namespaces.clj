@@ -361,8 +361,7 @@ clojure.set
 ;; **
 
 ;; @@
-;; SOLUTION
-(in-ns 'alpha)
+
 ;; @@
 
 ;; **
@@ -371,13 +370,8 @@ clojure.set
 ;; **
 
 ;; @@
-;; SOLUTION
-(println "Hello, World!")
-;; @@
 
-;; **
-;;; The `println` function is defined in the `clojure.core` namespace, which is not automatically referred into new namespaces by `in-ns`.
-;; **
+;; @@
 
 ;; **
 ;;; ### Getting to the core
@@ -385,8 +379,7 @@ clojure.set
 ;; **
 
 ;; @@
-;; SOLUTION
-(clojure.core/println "Hello, World!")
+
 ;; @@
 
 ;; **
@@ -395,23 +388,86 @@ clojure.set
 ;; **
 
 ;; @@
-;; SOLUTION
-(ns beta)
-;; @@
 
 ;; @@
-(println "Hello, World!")
-;; @@
-
-;; **
-;;; `ns` automatically refers all symbols from `clojure.core` into the new namespace.
-;; **
 
 ;; **
 ;;; ### File it away
 ;;; Create a new Clojure source file for the namespace `student.dialect`, with the appropriate `ns` declaration.
 ;;; 
 ;;; In this file, define a function canadianize that takes a string and appends ", eh?"
+;; **
+
+;; **
+;;; 
+;; **
+
+;; **
+;;; ### Loading from files
+;;; In the REPL below, load your new namespace and call the `canadianize` function.
+;; **
+
+;; @@
+
+;; @@
+
+;; **
+;;; ### Modifying sources
+;;; Modify your source file to make the `clojure.string` namespace available under the alias `str` in the `student.dialect` namespace.
+;;; 
+;;; Modify the `canadianize` function to strip a trailing period off its input. Use `clojure.string/replace`.
+;; **
+
+;; **
+;;; ### Reloading
+;;; In the REPL below, reload your source file and call the improved `canadianize` function.
+;; **
+
+;; @@
+
+;; @@
+
+;; **
+;;; ## Lab Solutions
+;;; 
+;;; ### Entering a namespace
+;; **
+
+;; @@
+(in-ns 'alpha)
+;; @@
+
+;; **
+;;; ### An empty namespace
+;; **
+
+;; @@
+(println "Hello, World!")
+;; @@
+
+;; **
+;;; The `println` function is defined in the `clojure.core` namespace, which is not automatically referred into new namespaces by `in-ns`.
+;;; 
+;;; ### Getting to the core
+;; **
+
+;; @@
+(clojure.core/println "Hello, World!")
+;; @@
+
+;; **
+;;; ### A less empty namespace
+;; **
+
+;; @@
+(ns beta)
+(println "Hello, World!")
+;; @@
+
+;; **
+;;; `ns` automatically refers all symbols from `clojure.core` into the new namespace.
+;;; 
+;;; ### File it away
 ;; **
 
 ;; **
@@ -427,28 +483,15 @@ clojure.set
 
 ;; **
 ;;; ### Loading from files
-;;; In the REPL below, load your new namespace and call the `canadianize` function.
 ;; **
 
 ;; @@
-;; Enter your solution here
-;; @@
-
-;; @@
-;; SOLUTION
 (require 'student.dialect)
-;; @@
-
-;; @@
-;; SOLUTION
 (student.dialect/canadianze "Nice weather today.")
 ;; @@
 
 ;; **
 ;;; ### Modifying sources
-;;; Modify your source file to make the `clojure.string` namespace available under the alias `str` in the `student.dialect` namespace.
-;;; 
-;;; Modify the `canadianize` function to strip a trailing period off its input. Use `clojure.string/replace`.
 ;; **
 
 ;; **
@@ -466,22 +509,32 @@ clojure.set
 
 ;; **
 ;;; ### Reloading
-;;; In the REPL below, reload your source file and call the improved `canadianize` function.
 ;; **
 
 ;; @@
-;; Enter your solution here
-;; @@
-
-;; @@
-;; SOLUTION
 (require 'student.dialect :reload)
-;; @@
-
-;; @@
-;; SOLUTION
 (student.dialect/canadianize "Nice weather today.")
 ;; @@
+
+;; **
+;;; 
+;; **
+
+;; **
+;;; 
+;; **
+
+;; **
+;;; ### 
+;; **
+
+;; **
+;;; 
+;; **
+
+;; **
+;;; 
+;; **
 
 ;; **
 ;;; 
