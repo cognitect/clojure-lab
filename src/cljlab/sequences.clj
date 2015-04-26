@@ -32,14 +32,35 @@
 ;;;     * Sorted map or set: in sort order
 ;;; * Sort-of like Java [Iterator](http://docs.oracle.com/javase/7/docs/api/java/util/Iterator.html) or Ruby [Enumerator](http://www.ruby-doc.org/core-2.1.1/Enumerator.html)
 ;;; * May be **lazy**
-;;; 
+;; **
+
+;; **
 ;;; ### Partial computation
 ;;; * Most sequence functions return another sequence
 ;;; * Each sequence represents one step in the "job"
 ;;; * Compose a "stack" of lazy sequence operations
 ;;; * Consume the resume of non-lazy
-;;; 
+;; **
+
+;; **
 ;;; ## The Sequence library: Generating
+;;; 
+;;; ### Evaluating infinite sequences
+;;; 
+;;; _WARNING:_ Some of the examples below will result in infinite sequences. To prevent the worksheet from stalling, evaluate the following expression:
+;; **
+
+;; @@
+(set! *print-length* 25)
+;; @@
+
+;; **
+;;; This will set the printer to only print the first 20 items of each sequence. If the collection contains more items, the printer will print the first 25 items, followed by "..." to indicate the remaining items.
+;;; 
+;;; Note that if you do not evaluate the above expression, but you evaluate an infinite sequence, the affected segment will turn green, and you will need to restart the Gorilla REPL server before reloading this page.
+;; **
+
+;; **
 ;;; ### Generating a sequence of numbers
 ;; **
 
