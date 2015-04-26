@@ -15,7 +15,9 @@
 ;;;     	* Vars
 ;;;         * Java classes
 ;;;         * Aliases to other namespaces
-;;;         
+;; **
+
+;; **
 ;;; ## What is a var?
 ;;; * An association between a _symbol_ and a _value_
 ;;; * `def`
@@ -24,7 +26,9 @@
 ;;; * `defn`
 ;;; 	* Shortcut for `def` + `fn`
 ;;;     * Creates a new var whose value is a function
-;;;     
+;; **
+
+;; **
 ;;; ## What is a symbol?
 ;;; * Just a label
 ;;; 	* A name _string_
@@ -35,7 +39,9 @@
 ;;; foo		; Unqualified symbol
 ;;; bar/foo ; Namespace-qualified symbol
 ;;; ```
-;;; 
+;; **
+
+;; **
 ;;; ## Creating namespaces
 ;;; ### `ns`
 ;;; * At the top of every source file
@@ -45,7 +51,9 @@
 ;;; ```clojure
 ;;; (ns com.some-example.my-app)
 ;;; ```
-;;; 
+;; **
+
+;; **
 ;;; ### Names into files
 ;;; * Dots become directory separators
 ;;; * Hyphens become underscores
@@ -56,7 +64,9 @@
 ;;; ;; in file $CLASSPATH/com/some_example/my_app.clj
 ;;; (ns com.some-example.my-app)
 ;;; ```
-;;; 
+;; **
+
+;; **
 ;;; ### The JVM classpath
 ;;; * Where to find code to load
 ;;; * List of directories and JAR files
@@ -68,19 +78,25 @@
 ;;; ;; Show the classpath
 ;;; (System/getProperty "java.class.path")
 ;;; ```
-;;; 
+;; **
+
+;; **
 ;;; ## Namespace operations
 ;;; * Load (_require_)
 ;;; * Copy (_refer_) symbol -> var mappings
 ;;; * Make a shortcut (_alias_)
-;;; 
+;; **
+
+;; **
 ;;; ### `ns :require`
 ;;; * Loads a namespace
 ;;; * Optionally
 ;;; 	* Provides an alias
 ;;;     * Refers some symbols
 ;;; * Never loads the same code twice
-;;; 
+;; **
+
+;; **
 ;;; ### `ns :require` example
 ;;; ```clojure
 ;;; (ns com.some-example.my-app
@@ -88,7 +104,9 @@
 ;;;     		  [clojure.set :as set]
 ;;;               [clojure.java.io :refer (file reader)]))
 ;;; ```
-;;; 
+;; **
+
+;; **
 ;;; ### `ns :require` bare
 ;;; ```clojure
 ;;; (ns ... (:require clojure.string ...))
@@ -98,7 +116,9 @@
 ;;; * Just load the code
 ;;; * Vars available as fully-qualified symbols
 ;;; 	* e.g. `clojure.string/replace`
-;;;     
+;; **
+
+;; **
 ;;; ### `ns :require :as`
 ;;; ```clojure
 ;;; (ns ... (:require [clojure.set :as set] ...))
@@ -109,7 +129,9 @@
 ;;; * Load code and create an alias
 ;;; * Vars available under shorter alias
 ;;; 	* e.g. `set/union`
-;;;     
+;; **
+
+;; **
 ;;; ### `ns :require :refer`
 ;;; ```clojure
 ;;; (ns ... (:require [clojure.java.io :refer (file reader)] ...))
@@ -120,7 +142,9 @@
 ;;; * Load code and copy symbol -> var bindings
 ;;; * Vars available without namespace qualification
 ;;; 	* e.g. `reader`
-;;;     
+;; **
+
+;; **
 ;;; ### `ns :use :only`
 ;;; ```clojure
 ;;; (ns ... (:use [clojure.java.io :only (file reader)] ...))
@@ -132,7 +156,9 @@
 ;;; 	* Like `[_name_ :only (_symbols_+)]`
 ;;; * Vars available without namespace qualification
 ;;; 	* e.g. `reader`
-;;;     
+;; **
+
+;; **
 ;;; ### `ns :import`
 ;;; ```clojure
 ;;; (ns com.some-example.my-app
@@ -145,7 +171,9 @@
 ;;;     * Or a list like `(_package_ _classes_+)`
 ;;; * Java "inner classes" are named `Outer$Inner`
 ;;; * Every namespace automatically imports `java.lang`
-;;; 
+;; **
+
+;; **
 ;;; ## Namespaces at the REPL
 ;;; ### Where am I?
 ;;; * `*ns*` is the current namespace
@@ -153,7 +181,9 @@
 ;;; 	* Takes a _symbol_ (quoted)
 ;;;     * Creates namespace if it doesn't exist
 ;;;     * Does _not_ automatically refer `clojure.core` like `ns`
-;;;     
+;; **
+
+;; **
 ;;; ### `in-ns`
 ;; **
 
@@ -208,7 +238,9 @@
 ;;; (require 'com.example :reload)
 ;;; (require 'com.example.myapp :reload-all)
 ;;; ```
-;;; 
+;; **
+
+;; **
 ;;; ### `import`
 ;;; * `import` is also a macro
 ;;; * Same syntax as in `(ns ... (:import ...))`
@@ -228,6 +260,9 @@
 ;;; ### Namespace concepts
 ;;; Click on the image to view full-size in a new window (in browsers that support SVG).
 ;;; ![Namespace concepts](project-files/images/namespaces-total.svg)
+;; **
+
+;; **
 ;;; 
 ;;; ### File vs. REPL
 ;;; ```clojure
@@ -239,7 +274,9 @@
 ;;; (ns foo (:require [bar :as b]))		(require '[bar :as b])
 ;;; (ns foo (:import (java.io File)))	(import (java.io File))
 ;;; ```
-;;; 
+;; **
+
+;; **
 ;;; ## Examining symbols and namespaces
 ;;; ### Examining and creating symbols
 ;; **
@@ -309,7 +346,9 @@ clojure.set
 ;;; <td>aliased namespaces</td>
 ;;; </tr>
 ;;; </table>
-;;; 
+;; **
+
+;; **
 ;;; ### Viewing namespace mappings example
 ;; **
 
