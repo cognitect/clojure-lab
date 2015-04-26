@@ -29,12 +29,13 @@
 ;;; 
 ;;; 1. [Syntax](/worksheet.html?filename=src/cljlab/syntax.clj)
 ;;; 2. [Functions](/worksheet.html?filename=src/cljlab/functions.clj)
-;;; 3. [Collections](/worksheet.html?filename=src/cljlab/collections.clj)
-;;; 4. [Flow Control](/worksheet.html?filename=src/cljlab/flowcontrol.clj)
-;;; 5. [Namespaces](/worksheet.html?filename=src/cljlab/namespaces.clj)
-;;; 6. [Sequences](/worksheet.html?filename=src/cljlab/sequences.clj)
-;;; 7. [Polymorphism](/worksheet.html?filename=src/cljlab/polymorphism.clj)
-;;; 8. [State](/worksheet.html?filename=src/cljlab/state.clj)
+;;; 3. [Ordered Collections](/worksheet.html?filename=src/cljlab/ordered-collections.clj)
+;;; 4. [Unordered Collections](/worksheet.html?filename=src/cljlab/unordered-collections.clj)
+;;; 5. [Flow Control](/worksheet.html?filename=src/cljlab/flowcontrol.clj)
+;;; 6. [Namespaces](/worksheet.html?filename=src/cljlab/namespaces.clj)
+;;; 7. [Sequences](/worksheet.html?filename=src/cljlab/sequences.clj)
+;;; 8. [Polymorphism](/worksheet.html?filename=src/cljlab/polymorphism.clj)
+;;; 9. [State](/worksheet.html?filename=src/cljlab/state.clj)
 ;;; 
 ;; **
 

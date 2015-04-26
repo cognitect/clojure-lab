@@ -682,7 +682,7 @@ vector
 ;;; 
 ;;; * [Up (Home)](/worksheet.html?filename=src/cljlab/start.clj)
 ;;; * [Previous (Syntax)](/worksheet.html?filename=src/cljlab/syntax.clj)
-;;; * [Next (Collections)](/worksheet.html?filename=src/cljlab/collections.clj)
+;;; * [Next (Ordered Collections)](/worksheet.html?filename=src/cljlab/ordered-collections.clj)
 ;;; 
 ;; **
 
