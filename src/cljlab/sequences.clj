@@ -806,6 +806,9 @@
 
 ;; **
 ;;; ## LAB: Sums and Ciphers
+;;; 
+;;; **Note:** All lab solutions are in the section following this one if you want to check your answers!
+;;; 
 ;;; ### Fibonacci sum
 ;;; Clojure's `take` function is commonly used to work with limited portions of infinite sequences.
 ;;; 
@@ -825,8 +828,7 @@
 ;; **
 
 ;; @@
-;; SOLUTION
-(reduce + (take 50 fibs))
+
 ;; @@
 
 ;; **
@@ -834,28 +836,6 @@
 ;;; The solution to the previous exercise can be written with `apply` instead of `reduce`. Why?
 ;;; 
 ;;; For most uses of `reduce`, this is not the case. Why not?
-;; **
-
-;; **
-;;; ;; SOLUTION
-;;; 
-;;; `reduce` is designed to be used with functions that take exactly two arguments. The `+` function is somewhat unique in that it takes any number of arguments. For the non-trivial cases, it is implemented in terms of `reduce`:
-;; **
-
-;; @@
-;; SOLUTION
-(defn +
-  ([] 0)
-  ([x] (cast Number x))
-  ([x y] (clojure.lang.Numbers/add x y))
-  ([x y & more]
-   	(reduce + (+ x y) more)))
-;; @@
-
-;; **
-;;; ;; SOLUTION
-;;; 
-;;; When you call `(apply + some-collection)`, you are actually reducing over successive pairs of elements from the collection.
 ;; **
 
 ;; **
@@ -881,8 +861,7 @@
 ;; **
 
 ;; @@
-;; SOLUTION
-(reduce + (take 50 (drop-while #(< % 100) primes)))
+
 ;; @@
 
 ;; **
@@ -893,8 +872,7 @@
 ;; **
 
 ;; @@
-;; SOLUTION
-(def letters (map char (range (int \A) (inc (int \Z)))))
+(def letters ___)
 ;; @@
 
 ;; **
@@ -915,8 +893,7 @@
 ;; **
 
 ;; @@
-;; SOLUTION
-(take 26 (drop 13 (cycle letters)))
+
 ;; @@
 
 ;; **
@@ -925,9 +902,8 @@
 ;; **
 
 ;; @@
-;; SOLUTION
 (defn rotate [coll n]
-  (take (count coll) (drop n (cycle coll))))
+  ___)
 ;; @@
 
 ;; **
@@ -936,8 +912,7 @@
 ;; **
 
 ;; @@
-;; SOLUTION
-(map vector letters (rotate letters 13))
+
 ;; @@
 
 ;; **
@@ -946,8 +921,7 @@
 ;; **
 
 ;; @@
-;; SOLUTION
-(into {} (map vector letters (rotate letters 13)))
+
 ;; @@
 
 ;; **
@@ -956,8 +930,7 @@
 ;; **
 
 ;; @@
-;; SOLUTION
-(def rot13-cipher (zipmap letters (rotate letters 13)))
+(def rot13-cipher ___)
 ;; @@
 
 ;; **
@@ -968,15 +941,9 @@
 ;; **
 
 ;; @@
-;; SOLUTION
 (defn rot13-one-char [c]
-  (rot13-cipher c c))
+  ___)
 ;; @@
-
-;; **
-;;; ;; SOLUTION
-;;; Here, we take advantage of the fact that maps are invocable, and take an optional second argument that is returned when the first argument is not a key in the map.
-;; **
 
 ;; **
 ;;; ### Enciphering text
@@ -999,9 +966,8 @@
 ;; @@
 
 ;; @@
-;; SOLUTION
 (defn rot13 [text]
-  (apply str (map rot13-one-char text)))
+  ___)
 ;; @@
 
 ;; **
@@ -1034,6 +1000,176 @@ GUNBYGUNCWUF FIACW, UHX ULNCZCWCUF CHNYFFCAYHWY.")
 ;; **
 
 ;; @@
+(defn count-letters [text]
+  ___)
+;; @@
+
+;; **
+;;; #### Counting with fnil
+;;; Clojure's `update-in` function is useful when making modifications to a map. It takes a vector of keys and a function, then uses those keys to "reach into" the map, apply the function to a value, and return the modified map. The `fnil` function is useful in conjunction with `update-in`.
+;;; 
+;;; Use `update-in` and `fnil` to redefine the `count-letters` function.
+;; **
+
+;; @@
+(defn count-letters [text]
+  ___)
+;; @@
+
+;; **
+;;; ### Finding most common letters
+;;; Clojure's `sort-by` function can sort a collection by any arbitrary function. Use this to find the most common letters in the secret message cipher-text.
+;; **
+
+;; @@
+
+;; @@
+
+;; **
+;;; #### Deciphering
+;;; In most English texts, _E_ is the most common letter, and this fact can often be used to break encryption. Our secret message is too short for that technique to work, so we will tell you that the most common letter in the plain-text message is _I_. We know the most common letter in the cipher-text from the previous exercise.
+;;; 
+;;; Given those facts, define a function to decipher the secret message.
+;; **
+
+;; @@
+;; We can see from the previous exercise that C is the most common letter int he cipher-text. How far is C from I?
+
+;; @@
+
+;; @@
+;; So, if we rotate the alphabet by six letters, we should be able to decipher the message.
+(def rot6-cipher ___)
+
+(defn rot6 [text]
+  ___)
+;; @@
+
+;; @@
+(println (rot6 secret-message))
+;; @@
+
+;; **
+;;; # Lab Solutions
+;;; 
+;;; ### Fibonacci sum
+;;; 
+;; **
+
+;; @@
+;; SOLUTION
+(reduce + (take 50 fibs))
+;; @@
+
+;; **
+;;; ### Reduce vs. apply
+;;; 
+;;; `reduce` is designed to be used with functions that take exactly two arguments. The `+` function is somewhat unique in that it takes any number of arguments. For the non-trivial cases, it is implemented in terms of `reduce`:
+;; **
+
+;; @@
+;; SOLUTION
+(defn +
+  ([] 0)
+  ([x] (cast Number x))
+  ([x y] (clojure.lang.Numbers/add x y))
+  ([x y & more]
+   	(reduce + (+ x y) more)))
+;; @@
+
+;; **
+;;; When you call `(apply + some-collection)`, you are actually reducing over successive pairs of elements from the collection.
+;; **
+
+;; **
+;;; ### Prime sum
+;; **
+
+;; @@
+;; SOLUTION
+(reduce + (take 50 (drop-while #(< % 100) primes)))
+;; @@
+
+;; **
+;;; ### Ranges of letters
+;;; 
+;; **
+
+;; @@
+;; SOLUTION
+(def letters (map char (range (int \A) (inc (int \Z)))))
+;; @@
+
+;; **
+;;; ### Rotating a sequence
+;; **
+
+;; @@
+;; SOLUTION
+(take 26 (drop 13 (cycle letters)))
+;; @@
+
+;; **
+;;; ### Generic rotation
+;; **
+
+;; @@
+;; SOLUTION
+(defn rotate [coll n]
+  (take (count coll) (drop n (cycle coll))))
+;; @@
+
+;; **
+;;; ### ROT-13 pairs
+;; **
+
+;; @@
+;; SOLUTION
+(map vector letters (rotate letters 13))
+;; @@
+
+;; **
+;;; ### Building a map with reduce
+;; **
+
+;; @@
+;; SOLUTION
+(def rot13-cipher (zipmap letters (rotate letters 13)))
+;; @@
+
+;; **
+;;; ### Invoking the map
+;; **
+
+;; @@
+;; SOLUTION
+(defn rot13-one-char [c]
+  (rot13-cipher c c))
+;; @@
+
+;; **
+;;; Here, we take advantage of the fact that maps are invocable, and take an optional second argument that is returned when the first argument is not a key in the map.
+;; **
+
+;; **
+;;; ### Enciphering text
+;; **
+
+;; @@
+;; SOLUTION
+(defn rot13 [text]
+  (apply str (map rot13-one-char text)))
+;; @@
+
+;; **
+;;; ## Bonus Questions
+;;; 
+;;; ### Counting letter frequency
+;;; 
+;;; 
+;; **
+
+;; @@
 ;; SOLUTION
 ;; Clojure already has a function `frequencies` that does this. It could also be written:
 (defn count-letters [text]
@@ -1045,10 +1181,8 @@ GUNBYGUNCWUF FIACW, UHX ULNCZCWCUF CHNYFFCAYHWY.")
 ;; @@
 
 ;; **
-;;; #### Counting with fnil
-;;; Clojure's `update-in` function is useful when making modifications to a map. It takes a vector of keys and a function, then uses those keys to "reach into" the map, apply the function to a value, and return the modified map. The `fnil` function is useful in conjunction with `update-in`.
+;;; ### Counting with fnil
 ;;; 
-;;; Use `update-in` and `fnil` to redefine the `count-letters` function.
 ;; **
 
 ;; @@
@@ -1062,7 +1196,6 @@ GUNBYGUNCWUF FIACW, UHX ULNCZCWCUF CHNYFFCAYHWY.")
 
 ;; **
 ;;; ### Finding most common letters
-;;; Clojure's `sort-by` function can sort a collection by any arbitrary function. Use this to find the most common letters in the secret message cipher-text.
 ;; **
 
 ;; @@
@@ -1071,10 +1204,7 @@ GUNBYGUNCWUF FIACW, UHX ULNCZCWCUF CHNYFFCAYHWY.")
 ;; @@
 
 ;; **
-;;; #### Deciphering
-;;; In most English texts, _E_ is the most common letter, and this fact can often be used to break encryption. Our secret message is too short for that technique to work, so we will tell you that the most common letter in the plain-text message is _I_. We know the most common letter in the cipher-text from the previous exercise.
-;;; 
-;;; Given those facts, define a function to decipher the secret message.
+;;; ### Deciphering
 ;; **
 
 ;; @@

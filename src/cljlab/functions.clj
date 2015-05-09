@@ -333,6 +333,8 @@ vector
 ;; **
 ;;; ## LAB: Functions
 ;;; 
+;;; **Note:** All lab solutions are in the section following this one if you want to check your answers!
+;;; 
 ;;; ### Defining a function
 ;;; 
 ;;; Define a function `greet` that takes no arguments and prints "Hello". Replace the `__` with the implementation.
@@ -550,8 +552,6 @@ vector
 
 ;; **
 ;;; # Lab Solutions
-;;; 
-;;; **Note:** All lab solutions are in the section following this one if you want to check your answers!
 ;;; 
 ;;; ### Defining a function
 ;; **
