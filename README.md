@@ -71,7 +71,7 @@ Contributions to this repository are welcome via pull request! However, we would
 
 If you have any questions, please contact alex.miller@cognitect.com.
 
-## License
+## Copyright
 
 Copyright © 2015 Cognitect
 
