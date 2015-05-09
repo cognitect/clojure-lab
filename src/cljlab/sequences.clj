@@ -39,7 +39,7 @@
 ;;; * Most sequence functions return another sequence
 ;;; * Each sequence represents one step in the "job"
 ;;; * Compose a "stack" of lazy sequence operations
-;;; * Consume the resume of non-lazy
+;;; * Consume the result as needed
 ;; **
 
 ;; **
