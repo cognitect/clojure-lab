@@ -120,6 +120,43 @@
 ;; @@
 
 ;; **
+;;; ### Adding new key-value pairs
+;;; 
+;;; New values are added to maps with the `assoc` (short for "associate") function:
+;; **
+
+;; @@
+(assoc scores "Sally" 0)
+;; @@
+;; =>
+;;; {"type":"list-like","open":"<span class='clj-map'>{</span>","close":"<span class='clj-map'>}</span>","separator":", ","items":[{"type":"list-like","open":"","close":"","separator":" ","items":[{"type":"html","content":"<span class='clj-string'>&quot;Una&quot;</span>","value":"\"Una\""},{"type":"html","content":"<span class='clj-long'>1400</span>","value":"1400"}],"value":"[\"Una\" 1400]"},{"type":"list-like","open":"","close":"","separator":" ","items":[{"type":"html","content":"<span class='clj-string'>&quot;Bob&quot;</span>","value":"\"Bob\""},{"type":"html","content":"<span class='clj-long'>1240</span>","value":"1240"}],"value":"[\"Bob\" 1240]"},{"type":"list-like","open":"","close":"","separator":" ","items":[{"type":"html","content":"<span class='clj-string'>&quot;Cid&quot;</span>","value":"\"Cid\""},{"type":"html","content":"<span class='clj-long'>1024</span>","value":"1024"}],"value":"[\"Cid\" 1024]"},{"type":"list-like","open":"","close":"","separator":" ","items":[{"type":"html","content":"<span class='clj-string'>&quot;Sally&quot;</span>","value":"\"Sally\""},{"type":"html","content":"<span class='clj-long'>0</span>","value":"0"}],"value":"[\"Sally\" 0]"}],"value":"{\"Una\" 1400, \"Bob\" 1240, \"Cid\" 1024, \"Sally\" 0}"}
+;; <=
+
+;; **
+;;; If the key used in `assoc` already exists, the value is replaced.
+;; **
+
+;; @@
+(assoc scores "Bob" 0)
+;; @@
+;; =>
+;;; {"type":"list-like","open":"<span class='clj-map'>{</span>","close":"<span class='clj-map'>}</span>","separator":", ","items":[{"type":"list-like","open":"","close":"","separator":" ","items":[{"type":"html","content":"<span class='clj-string'>&quot;Una&quot;</span>","value":"\"Una\""},{"type":"html","content":"<span class='clj-long'>1400</span>","value":"1400"}],"value":"[\"Una\" 1400]"},{"type":"list-like","open":"","close":"","separator":" ","items":[{"type":"html","content":"<span class='clj-string'>&quot;Bob&quot;</span>","value":"\"Bob\""},{"type":"html","content":"<span class='clj-long'>0</span>","value":"0"}],"value":"[\"Bob\" 0]"},{"type":"list-like","open":"","close":"","separator":" ","items":[{"type":"html","content":"<span class='clj-string'>&quot;Cid&quot;</span>","value":"\"Cid\""},{"type":"html","content":"<span class='clj-long'>1024</span>","value":"1024"}],"value":"[\"Cid\" 1024]"}],"value":"{\"Una\" 1400, \"Bob\" 0, \"Cid\" 1024}"}
+;; <=
+
+;; **
+;;; ### Removing key-value pairs
+;;; 
+;;; The complementary operation for removing key-value pairs is `dissoc` ("dissociate"):
+;; **
+
+;; @@
+(dissoc scores "Bob")
+;; @@
+;; =>
+;;; {"type":"list-like","open":"<span class='clj-map'>{</span>","close":"<span class='clj-map'>}</span>","separator":", ","items":[{"type":"list-like","open":"","close":"","separator":" ","items":[{"type":"html","content":"<span class='clj-string'>&quot;Una&quot;</span>","value":"\"Una\""},{"type":"html","content":"<span class='clj-long'>1400</span>","value":"1400"}],"value":"[\"Una\" 1400]"},{"type":"list-like","open":"","close":"","separator":" ","items":[{"type":"html","content":"<span class='clj-string'>&quot;Cid&quot;</span>","value":"\"Cid\""},{"type":"html","content":"<span class='clj-long'>1024</span>","value":"1024"}],"value":"[\"Cid\" 1024]"}],"value":"{\"Una\" 1400, \"Cid\" 1024}"}
+;; <=
+
+;; **
 ;;; ### Looking up by key
 ;;; 
 ;;; There are several ways to look up a value in a map. The most obvious is the function `get`:
