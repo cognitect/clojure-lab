@@ -1,8 +1,29 @@
-# clojure-lab
+# Welcome to Clojure!
 
-Clojure Lab materials 
+This repository is designed to be a set of interactive learning materials introducing Clojure.
+The materials are suitable for use either individually or in group settings. The content is
+delivered using [Gorilla REPL](http://gorilla-repl.org/), which combines text information with
+embedded REPLs (interactive Clojure code editors).
+
+The content in this course was developed by Cognitect for Clojure training events held at both
+conferences and corporate settings. This particular version of the materials was first used in 
+the Clojure/West 2015 Intro to Clojure 2-day course.
+
+Table of contents:
+
+- Syntax
+- Functions
+- Ordered collections
+- Unordered collections
+- Flow control
+- Namespaces
+- Sequences
+- Polymorphism
+- State
 
 ## Run from repository
+
+This is the normal way to interact with these materials.
 
 ### Prerequisites
 
@@ -28,6 +49,9 @@ lein gorilla :port 55555
 
 ## Creating a standalone package 
 
+If you are teaching a course this may be useful to create a standalone package for distribution to
+students.
+
 1) Create the uberjar:
 
 ```
@@ -43,6 +67,9 @@ zip -r clojure-lab clojure-lab/images clojure-lab/src clojure-lab/target/*-stand
 ```
 
 ## Running the standalone package
+
+If you are taking a course with a standalone package, this method can be used to
+run the materials.
 
 1) Unzip the zip file 
 
