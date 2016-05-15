@@ -9,7 +9,7 @@
 ;; **
 ;;; ## Motivation
 ;;; 
-;;; There are many situations where it is useful to provide behavior that varies based on type or value. Clojure provides two different mechanisms to for conditional (polymorphic) behavior: protocols and multimethods.
+;;; There are many situations where it is useful to provide behavior that varies based on type or value. Clojure provides two different mechanisms for conditional (polymorphic) behavior: protocols and multimethods.
 ;;; 
 ;;; Also, Clojure provides two constructs that allow you to create new data "types": records (which we saw in collections earlier) and types.
 ;;; 
