@@ -388,6 +388,9 @@ vector
 
 ;; @@
 (defn do-nothing [x] ___)
+
+(assert (= 42   (do-nothing 42)))
+(assert (= "wtf"(do-nothing "wtf")))
 ;; @@
 
 ;; **
@@ -406,6 +409,10 @@ vector
 
 ;; @@
 (defn always-thing [__] ___)
+
+(assert (= :thing (always-thing)))
+(assert (= :thing (always-thing 42)))
+(assert (= :thing (always-thing "wtf" 42)))
 ;; @@
 
 ;; **
@@ -517,6 +524,8 @@ vector
 ;; @@
 (defn http-get [url]
   ___)
+
+(assert (.contains (http-get "http://www.w3.org") "html"))
 ;; @@
 
 ;; **
@@ -533,6 +542,9 @@ vector
 ;; @@
 (defn one-less-arg [f x]
   (fn [& args] ___))
+
+(defn add-two-numbers [x y] (+ x y))
+(assert (= 3 ((one-less-arg add-two-numbers 1) 2)))
 ;; @@
 
 ;; **
@@ -548,8 +560,13 @@ vector
 ;; @@
 (defn two-fns [f g]
   ___)
-;; @@
 
+(defn add-two   [x] (+ 2 x))
+(defn times-ten [x] (* 10 x))
+
+(assert (= 12 ((two-fns add-two times-ten) 1)))
+(assert (= 30 ((two-fns times-ten add-two) 1)))
+;; @@
 ;; **
 ;;; # Lab Solutions
 ;;; 

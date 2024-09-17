@@ -100,7 +100,7 @@
 ;; **
 ;;; ## `when`
 ;;; 
-;;; `when` is a one-armed `if`. It checks a condition and then evaluates any number of statements as a body (so no `do` is required). The value of the last expression is returned. If the condition is false, nil is returned.
+;;; `when` is a one-armed `if`. It checks a condition and then evaluates any number of expressions as a body (so no `do` is required). The value of the last expression is returned. If the condition is false, nil is returned.
 ;;; 
 ;;; `when` communicates to a reader that there is no "else" branch.	
 ;; **
@@ -471,7 +471,7 @@
 
 ;; **
 ;;; ## Euclid's algorithm
-;;; [Euclid's algorithm](http://en.wikipedia.org/wiki/Euclidean_algorithm) finds the greatest common divisor of two integers using only substraction. In imperative pseudo-code, it looks like this:
+;;; [Euclid's algorithm](http://en.wikipedia.org/wiki/Euclidean_algorithm) finds the greatest common divisor of two integers using only subtraction. In imperative pseudo-code, it looks like this:
 ;;; 
 ;;; ```
 ;;; function gcd(A, B):
@@ -479,7 +479,7 @@
 ;;;       if A == 0
 ;;;           return B
 ;;;         if B == 0
-;;;           return B
+;;;           return A
 ;;;         if A > B
 ;;;           A := A - B
 ;;;         else
