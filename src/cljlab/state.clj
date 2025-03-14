@@ -227,7 +227,7 @@
 ;; @@
 
 ;; **
-;;; ### Atom Guarantees
+;;; ### Agent Guarantees
 ;;; 
 ;;; * Action occurs *asynchronously* on thread pool
 ;;; * Action called exactly once
